@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../api/api_service.dart';
-import '../models/content_model.dart';
+import '../models/game_model.dart';
 
 class GamesScreen extends StatefulWidget {
   const GamesScreen({super.key});
@@ -12,7 +12,7 @@ class GamesScreen extends StatefulWidget {
 }
 
 class _GamesScreenState extends State<GamesScreen> {
-  late Future<List<ContentModel>> games;
+  late Future<List<GameModel>> games;
 
   @override
   void initState() {
@@ -37,7 +37,7 @@ class _GamesScreenState extends State<GamesScreen> {
       appBar: AppBar(
         title: const Text("GX20D Games"),
       ),
-      body: FutureBuilder<List<ContentModel>>(
+      body: FutureBuilder<List<GameModel>>(
         future: games,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
